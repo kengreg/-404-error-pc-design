@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title> ASG servicios / Error 404 </title>
+    <link href="css/404-error.css" rel="stylesheet" />
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+var barWidth = 0;
+function contLoading(){
+	if (barWidth>=100){
+		document.getElementById("status").innerHTML="Completed!";
+		document.getElementById("precentage").innerHTML="";
+		$("#result").slideDown("600","swing");
+	}
+	else {
+		$("#result").hide();
+		var percentage = document.getElementById("precentage");
+		var loadBar = document.getElementById("loadingProgress");
+		barWidth = barWidth+1;
+		loadBar.style.width = barWidth+"%";
+		percentage.innerHTML = barWidth+"%";
+	}
+}
+window.setInterval(contLoading, 20);
+    </script>
+</head>
+<body>
+	<section class="container">
+			<header>Error with your Search: 404</header>
+			<section class="text">
+				<p>We are checking your problem...</p>
+				<p>This might take several minutes.</p>
+				<br />
+				<p>Running test pass 1 of 1: <span id="status">Loading...</span></p>
+				<p>Overall test status <span id="precentage"></span></p>
+				<div id="loadingContainer">
+    				<div id="loadingProgress"></div>
+  				</div>
+  				<div id="result">
+  					<p class="status" >Status: Página no encontrada. No hay problemas con su computador o browser,</p>
+  					<p class="status" >sin embargo, al parecer usted ha escrito una dirección incorrecta la cual no se encuentra en este sitio web.</p>
+  					<p>Le recomendamos revisar la dirección e intentarlo nuevamente.</p>
+  				</div>
+			</section>
+				<footer>
+				<article class="left">REGRESAR: BACKSPACE</article>
+				<article class="right">EXIT: <a href="index.php">Inicio</a></article>
+	</footer>
+	</section>
+</body>
+</html>
